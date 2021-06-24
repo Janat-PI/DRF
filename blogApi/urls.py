@@ -26,8 +26,9 @@ router.register('posts', PostsViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('v1/api/categories', CategoryListView.as_view()),
+    path('v1/api/categories/', CategoryListView.as_view()),
     path('v1/api/', include(router.urls)),
     path('v1/api/add-image/', PostImageView.as_view()),
+    path('v1/api/account/', include('account.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
